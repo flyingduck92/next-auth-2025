@@ -1,4 +1,12 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app) + 2FA (Google Authentication)
+
+## Create .env.local 
+```bash
+DATABASE_URL= # use NeonDB
+AUTH_SECRET=  # Added by `npx auth`. Read more: https://cli.authjs.dev
+RESEND_API_KEY= # create API_KEY on Resend
+SITE_BASE_URL= # Your base site url (like localhost:3000)
+```
 
 ## Getting Started
 
