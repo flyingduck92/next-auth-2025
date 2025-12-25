@@ -23,16 +23,13 @@ function TwoFactorAuthForm({ twoFactorActivated }: twoFactorActivatedProps) {
   const [otp, setOtp] = useState('')
 
   const handleEnable2FA = async () => {
-    // add delay on enable 2FA
-    await new Promise((resolve) => setTimeout(resolve, 300))
-
     const response = await get2FASecret()
     if (response.error) {
       toast.error(response.message)
       return
     }
 
-    // step 2 - Display QRCode
+    // step 2 - Generate code for QRCode
     setStep(2)
     setCode(response.twoFactorSecret ?? '')
   }
@@ -48,6 +45,8 @@ function TwoFactorAuthForm({ twoFactorActivated }: twoFactorActivatedProps) {
 
     toast.success('Two-Factor Authentication has been enabled')
     setIs2FActivated(true)
+    setStep(1)
+    setCode('')
     setOtp('')
   }
 
@@ -58,6 +57,9 @@ function TwoFactorAuthForm({ twoFactorActivated }: twoFactorActivatedProps) {
     await disabled2FA()
     toast.success('Two-Factor Authentication has been disabled')
     setIs2FActivated(false)
+    setStep(1)
+    setCode('')
+    setOtp('')
   }
 
   return (
@@ -100,7 +102,10 @@ function TwoFactorAuthForm({ twoFactorActivated }: twoFactorActivatedProps) {
               <Button
                 className='mt-2 w-full cursor-pointer'
                 variant='outline'
-                onClick={() => setStep(1)}
+                onClick={() => {
+                  setStep(1)
+                  setCode('')
+                }}
               >
                 Cancel
               </Button>
