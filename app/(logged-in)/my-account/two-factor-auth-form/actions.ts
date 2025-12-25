@@ -30,8 +30,10 @@ export const get2FASecret = async () => {
     }
   }
 
+  // if available use 2FASecret
   let twoFactorSecret = user.twoFactorSecret
 
+  // if not available generate 2FASecret
   if (!twoFactorSecret) {
     twoFactorSecret = authenticator.generateSecret()
     await db
