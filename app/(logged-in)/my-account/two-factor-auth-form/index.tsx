@@ -45,6 +45,7 @@ function TwoFactorAuthForm({ twoFactorActivated }: twoFactorActivatedProps) {
 
     toast.success('Two-Factor Authentication has been enabled')
     setIs2FActivated(true)
+    setOtp('')
   }
 
   const handleDisable2FA = async () => {

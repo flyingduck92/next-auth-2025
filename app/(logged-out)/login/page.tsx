@@ -98,6 +98,7 @@ function Login() {
     if (response?.error) {
       toast.error(response?.message)
     } else {
+      setOtp('')
       router.push('/my-account')
     }
   }
