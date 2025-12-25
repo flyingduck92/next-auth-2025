@@ -23,6 +23,9 @@ function TwoFactorAuthForm({ twoFactorActivated }: twoFactorActivatedProps) {
   const [otp, setOtp] = useState('')
 
   const handleEnable2FA = async () => {
+    // add delay on enable 2FA
+    await new Promise((resolve) => setTimeout(resolve, 300))
+
     const response = await get2FASecret()
     if (response.error) {
       toast.error(response.message)
@@ -49,8 +52,10 @@ function TwoFactorAuthForm({ twoFactorActivated }: twoFactorActivatedProps) {
   }
 
   const handleDisable2FA = async () => {
-    await disabled2FA()
+    // add delay on disable 2FA
+    await new Promise((resolve) => setTimeout(resolve, 300))
 
+    await disabled2FA()
     toast.success('Two-Factor Authentication has been disabled')
     setIs2FActivated(false)
   }
