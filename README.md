@@ -5,7 +5,7 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 DATABASE_URL= # use NeonDB
 AUTH_SECRET=  # Added by `npx auth`. Read more: https://cli.authjs.dev
 RESEND_API_KEY= # create API_KEY on Resend
-SITE_BASE_URL= # Your base site url (like localhost:3000)
+SITE_BASE_URL= # Your base site url (like http://localhost:3000)
 ```
 
 ## Getting Started
