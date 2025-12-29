@@ -10,6 +10,7 @@ import { passwordResetTokens } from '@/db/passwordResetTokensSchema'
 import { eq } from 'drizzle-orm'
 import Link from 'next/link'
 import UpdatePasswordForm from './update-password-forn'
+import Image from 'next/image'
 
 async function UpdatePassword({
   searchParams,
@@ -40,6 +41,19 @@ async function UpdatePassword({
       <Card className='w-87.5 gap-2'>
         <CardHeader>
           <CardTitle>
+            <div className='mb-4'>
+              <Link href='/'>
+                <Image
+                  className='dark:invert'
+                  src='/next.svg'
+                  alt='Next.js logo'
+                  width={100}
+                  height={20}
+                  priority
+                />
+                <h2>NEXT-AUTH 2025</h2>
+              </Link>
+            </div>
             {tokenIsValid ? 'Update Password' : 'Invalid Password Reset Link'}
           </CardTitle>
         </CardHeader>

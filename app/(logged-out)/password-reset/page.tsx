@@ -23,6 +23,7 @@ import { useSearchParams } from 'next/navigation'
 import { Controller, useForm } from 'react-hook-form'
 import * as z from 'zod'
 import resetPassword from './actions'
+import Image from 'next/image'
 
 const formSchema = z.object({
   email: z.email('Invalid email address'),
@@ -64,7 +65,22 @@ function PasswordReset() {
       ) : (
         <Card className='w-87.5'>
           <CardHeader>
-            <CardTitle>Reset Password</CardTitle>
+            <CardTitle>
+              <div className='mb-4'>
+                <Link href='/'>
+                  <Image
+                    className='dark:invert'
+                    src='/next.svg'
+                    alt='Next.js logo'
+                    width={100}
+                    height={20}
+                    priority
+                  />
+                  <h2>NEXT-AUTH 2025</h2>
+                </Link>
+              </div>
+              Reset Password
+            </CardTitle>
             <CardDescription>
               Please enter valid email to reset your password
             </CardDescription>

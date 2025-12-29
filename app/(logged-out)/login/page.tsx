@@ -32,6 +32,7 @@ import {
   InputOTPSlot,
 } from '@/components/ui/input-otp'
 import { toast } from 'sonner'
+import Image from 'next/image'
 
 const formSchema = z.object({
   email: z.email(),
@@ -111,7 +112,22 @@ function Login() {
       {step === 1 && (
         <Card className='w-87.5'>
           <CardHeader>
-            <CardTitle>Login</CardTitle>
+            <CardTitle>
+              <div className='mb-4'>
+                <Link href='/'>
+                  <Image
+                    className='dark:invert'
+                    src='/next.svg'
+                    alt='Next.js logo'
+                    width={100}
+                    height={20}
+                    priority
+                  />
+                  <h2>NEXT-AUTH 2025</h2>
+                </Link>
+              </div>
+              Login
+            </CardTitle>
             <CardDescription>Login to your account</CardDescription>
           </CardHeader>
           <CardContent>

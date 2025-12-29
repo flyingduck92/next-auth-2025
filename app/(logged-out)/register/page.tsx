@@ -24,6 +24,7 @@ import { Controller, useForm } from 'react-hook-form'
 import * as z from 'zod'
 import { passwordMatchSchema } from '@/validation/passwordMatchSchema'
 import { registerUser } from './actions'
+import Image from 'next/image'
 
 const formSchema = z
   .object({
@@ -76,7 +77,22 @@ function Register() {
       ) : (
         <Card className='w-87.5'>
           <CardHeader>
-            <CardTitle>Register</CardTitle>
+            <CardTitle>
+              <div className='mb-4'>
+                <Link href='/'>
+                  <Image
+                    className='dark:invert'
+                    src='/next.svg'
+                    alt='Next.js logo'
+                    width={100}
+                    height={20}
+                    priority
+                  />
+                  <h2>NEXT-AUTH 2025</h2>
+                </Link>
+              </div>
+              Register
+            </CardTitle>
             <CardDescription>Register for a new account</CardDescription>
           </CardHeader>
           <CardContent>
